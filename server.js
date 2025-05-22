@@ -138,6 +138,9 @@ app.post("/sendemail", (req, res) => {
 // Serve static files first - this doesn't use the router
 app.use(express.static(path.join(__dirname, "dist")));
 
+// הוספת תמיכה בקבצים סטטיים מתיקיית assets
+app.use("/assets", express.static(path.join(__dirname, "dist/assets")));
+
 // Instead of using Express router with a wildcard route (*),
 // we'll use a simple middleware for all requests
 app.use((req, res) => {
